@@ -2,6 +2,17 @@
 set -e
 #set -x
 
+function usage() {
+  echo "usage:"
+  echo "./perf-java-flames <pid>"
+  exit 1
+}
+
+if [ "$#" -ne 1 ]; then
+  usage
+fi
+
+
 PID=$1
 
 if [ -z "$PERF_JAVA_TMP" ]; then
